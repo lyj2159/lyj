@@ -167,3 +167,41 @@ footer small{font-size:inherit;font-weight:inherit}
 @media (prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;transition:none!important}
 }
+
+/* 문의 폼 */
+.form{color:var(--text);border-radius:var(--r);background:#fff;gap:14px;padding:28px;display:grid}
+.form label{gap:5px;font-size:.9rem;font-weight:500;display:grid;align-content:start}
+.form label small{color:var(--muted);font-weight:400}
+.form input,.form textarea{font:inherit;color:var(--text);background:#fff;border:1px solid #cfcabd;border-radius:8px;width:100%;padding:11px 12px;transition:border-color .2s}
+.form input:focus,.form textarea:focus{border-color:var(--navy)}
+.form textarea{resize:vertical;min-height:140px;line-height:1.6}
+.form .two{grid-template-columns:1fr 1fr;gap:12px;display:grid}
+.form .btn{width:100%}
+.form .btn:disabled{opacity:.6;cursor:wait;transform:none}
+.form .consent{color:var(--muted);grid-template-columns:none;align-items:flex-start;gap:10px;font-size:.82rem;font-weight:400;line-height:1.5;display:flex}
+.form .consent input{width:20px;height:20px;accent-color:var(--navy);flex:none;margin-top:1px;padding:0}
+.field-err{color:#b3261e;font-size:.8rem;font-weight:500;min-height:0}
+.field-err:empty{display:none}
+.form [aria-invalid=true]{border-color:#b3261e}
+.form-status{text-align:center;font-size:.9rem;font-weight:500;min-height:0}
+.form-status:empty{display:none}
+.form-status.ok{color:#1d6b3a}
+.form-status.err{color:#b3261e}
+.hp{width:1px;height:1px;position:absolute;left:-9999px;overflow:hidden}
+.form.done{text-align:center;justify-items:center;padding:40px 28px}
+.form.done h3{color:var(--navy);font-size:1.3rem}
+@media (width<=860px){
+  .form input,.form textarea{padding:13px 12px}
+  .form .two{grid-template-columns:1fr}
+}
+.form .lb{display:block}
+
+/* 문의 폼 - 모바일 보정 */
+@media (width<=860px){
+  .form input,.form textarea{font-size:16px}   /* iOS Safari가 포커스 시 화면을 확대하지 않도록 */
+  .form .consent input{width:22px;height:22px}
+}
+@media (width<=400px){
+  .form{padding:22px 18px}
+  .form.done{padding:32px 18px}
+}
